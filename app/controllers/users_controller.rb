@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
-
+  include UsersHelper
+  
   def new
-    @User = User.new
+    @user = User.new
   end
 
   def create
-    @user = Object.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       #flash[:success] = "Object successfully created"
-      redirect_to @user
+      redirect_to new_user_path
     else
       #flash[:error] = "Something went wrong"
       render 'new'
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(id)
+    @user = User.find(params[:id])
   end
     
 end
