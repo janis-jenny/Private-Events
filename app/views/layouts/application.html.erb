@@ -20,17 +20,14 @@
   <body>
     <nav class="navbar fixed-top navbar-dark bg-primary p-2">
       <% if current_user %>
-
         <h1 class= 'text-white'> Welcome!!! <%= current_user.name %> </h1>
         <%= link_to('Logout', logout_path, class: 'btn btn-primary') %>
-
       <% else%>
-
         <%= link_to('Login', login_path, class: 'btn btn-primary') %>
-
       <%end%>
-      
     </nav>
+    
+
     <%= yield %>
     <!-- Optional JavaScript; choose one of the two! -->
 

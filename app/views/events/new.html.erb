@@ -1,0 +1,18 @@
+<br>
+<br>
+<br>
+<br>
+
+<h1>Create events</h1>
+
+<%= form_for @event, url: {action: "create"} do |f| %>
+         <%= f.label :title, nil, class: 'label' %>
+         <%= f.text_field :title, placeholder: "Put a title" %><br />
+         <%= f.label :description, nil, class: 'label' %>
+         <%= f.text_field :description, placeholder: "What's the event about?" %><br />
+         <%= f.label :date, nil, class: 'label' %>
+         <%= f.date_field :date, placeholder: "What's the date?" %><br />
+         <%= f.label :location, nil, class: 'label' %>
+         <%= f.text_field :location, placeholder: "Where's the event going?" %><br />
+         <%= f.submit "Create" %>
+<% end %>
