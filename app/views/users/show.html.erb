@@ -1,0 +1,16 @@
+<br>
+<br>
+<br>
+<br>
+
+  <ul>
+    <% current_user.events.each do |e| %>
+      <li>
+        <%= e.title%>
+        <%= e.description%>
+        <%= e.date%>
+        <%= e.location %>
+      </li>
+    <% end %>
+  </ul>
+
