@@ -9,3 +9,8 @@
     <%= @event.title %> <!--aqui se imprime la columna "title"-->
     <%= @event.user.name %>
   </ul>
+<%= form_for @attendance, url: {action: "create"} do |f| %>
+        <%= f.hidden_field :event_id, value: 2  %><br />
+        <%= f.hidden_field :user_id, value: current_user.id  %><br />
+        <%= f.submit "Assist" %>
+<% end %>

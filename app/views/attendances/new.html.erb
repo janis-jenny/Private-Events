@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<br>
+<br> 
+<%= form_with(model: @attendance, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.collection_select(:user_id, User.all, :id, :name,
+                  { multiple: true, size: 3 }, class: "select mr-3" )%>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= form.collection_select(:event_id, Event.all, :id, :title,
+                  { multiple: true, size: 6 }, class: "select mr-3" )%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
