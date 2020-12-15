@@ -5,7 +5,7 @@
 <br>
 
   <ul>
-    <% event_creator = Event.find_by_title('Event1') %> <!--la variable tiene toda la fila del "Event1"-->
-    <%= event_creator.title %> <!--aqui se imprime la columna "title"-->
-    <%= event_creator.user.name %>
+ <!--la variable tiene toda la fila del "Event1"-->
+    <%= @event.title %> <!--aqui se imprime la columna "title"-->
+    <%= @event.user.name %>
   </ul>
