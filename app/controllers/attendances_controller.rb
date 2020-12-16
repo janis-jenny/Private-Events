@@ -11,11 +11,10 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    #@attendance = current_user.attendances.build
-    @attendance = Attendance.new(attendance_params)
-    
+    @attendance = Attendance.new(:user_id => params[:user_id], :event_id => params[:event_id])
+
     if @attendance.save
-      redirect_to new_attendance_path
+      redirect_to events_path
     else
       render 'new'
     end
