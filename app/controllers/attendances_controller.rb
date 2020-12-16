@@ -1,10 +1,9 @@
 class AttendancesController < ApplicationController
   include AttendancesHelper
-
+  
   def index
     @attendances = Attendance.all
   end
-  
 
   def new
     @attendance = Attendance.new
