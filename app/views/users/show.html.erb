@@ -1,11 +1,16 @@
+<p id="notice"><%= notice %></p>
 <br>
 <br>
 <br>
-<br>
+<p>
+  <strong>Username:</strong>
+  <%=current_user.name %>
+</p>
 
-  <ul>
-    <% current_user.attended_events.each do |a| %>
-       <%= a.title%>
-    <%end%>
-  </ul>
+<h2> <%=current_user.name %>'s events </h2>
+<ul>
+  <% current_user.attended_events.each do |event| %>
+      <%= link_to event.title, event_path(event.id)%>
+  <%end%>
+</ul>
 
