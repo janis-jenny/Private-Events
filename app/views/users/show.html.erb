@@ -4,13 +4,8 @@
 <br>
 
   <ul>
-    <% current_user.events.each do |e| %>
-      <li>
-        <%= e.title%>
-        <%= e.description%>
-        <%= e.date%>
-        <%= e.location %>
-      </li>
-    <% end %>
+    <% current_user.attended_events.each do |a| %>
+       <%= a.title%>
+    <%end%>
   </ul>
 
