@@ -7,6 +7,7 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
+    
 
     if @attendance.save
       redirect_to events_path
@@ -16,8 +17,9 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    @attendance = Attendance.find(params[:id])
+    @attendance = Attendance.find_by(user_id: params[:user_id], event_id: params[:event_id])
     @attendance.destroy
+    redirect_to event_path
   end
 
 end

@@ -20,6 +20,8 @@
 
     <%if !current_user.attended_events.find_by_id(@event.id) %>
         <button type="button" class="btn btn-success"><%= link_to 'Go', attendances_path(:event_id => @event.id, :user_id => current_user.id), :method => :post %></button>
+    <%else%>
+        <button type="button" class="btn btn-success"><%= link_to 'Leave this event', attendance_path(:event_id => @event.id, :user_id => current_user.id), method: :delete %></button>
     <%end%>
 
     <%if @event.user.name == current_user.name %>
