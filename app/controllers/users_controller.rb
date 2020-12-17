@@ -24,4 +24,9 @@ class UsersController < ApplicationController
     @upcoming_events = current_user.events.upcoming_events
     @past_events = current_user.events.past_events
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+  end
 end

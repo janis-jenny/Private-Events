@@ -14,4 +14,10 @@ class AttendancesController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @attendance = Attendance.find(params[:id])
+    @attendance.destroy
+  end
+
 end
