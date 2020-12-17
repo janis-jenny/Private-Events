@@ -7,8 +7,7 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    
-
+  
     if @attendance.save
       redirect_to events_path
     else

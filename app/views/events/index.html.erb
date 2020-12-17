@@ -4,8 +4,11 @@
 <br>
 <br>
 
+<h2> All events </h2>
+
+<h2> Upcoming Events </h2>
 <ul>
-  <% @events.each do |e| %>
+  <% @upcoming_events.each do |e| %>
     <li><%= link_to e.title, event_path(e)%>
         <%= e.description %>
         <%= e.date %>
@@ -13,3 +16,14 @@
     </li>
   <% end %>
 </ul>
+
+<h2> Past Events </h2>
+<ul>
+  <% @past_events.each do |e| %>
+    <li><%= link_to e.title, event_path(e)%>
+        <%= e.description %>
+        <%= e.date %>
+        <%= e.location %>
+    </li>
+  <% end %>
+</ul
