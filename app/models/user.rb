@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, :email, presence: true
+  validates :name, presence: true, uniqueness: true, length: { in: 3..12 }
   has_many :attendances
   has_many :attended_events, through: :attendances, source: :event
   has_many :events
