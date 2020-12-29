@@ -17,8 +17,15 @@
         <li class="list-group-item"><%= a.name%></li>
       <%end%>
     </ul>
+    
+    <%@e_id = @event.id%>
+    <%current_user_attended_event%>
+    <button type="button" class="btn btn-success"><%=@go%></button>
+    <button type="button" class="btn btn-success"><%=@leave%></button>
+    <%del_btn%>
+    <button type="button" class="btn btn-success"><%=@del%></button>
 
-    <%if !current_user.attended_events.find_by_id(@event.id) %>
+  <!--<%if !current_user.attended_events.find_by_id(@event.id) %>
         <button type="button" class="btn btn-success"><%= link_to 'Go', attendances_path(:event_id => @event.id, :user_id => current_user.id), :method => :post %></button>
     <%else%>
         <button type="button" class="btn btn-success"><%= link_to 'Leave this event', attendance_path(:event_id => @event.id, :user_id => current_user.id), method: :delete %></button>
@@ -27,7 +34,7 @@
     <%if @event.user.name == current_user.name %>
         <%= link_to 'Delete event', event_path(@event), method: :delete %>
     <%end%> 
-
+  -->
   </div>
 </div>
 
