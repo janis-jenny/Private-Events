@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include EventsHelper
   helper_method :current_user
   helper_method :user_sign_in?
 
