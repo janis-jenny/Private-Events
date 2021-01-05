@@ -9,7 +9,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
   
     if @attendance.save
-      redirect_to events_path
+      redirect_to event_url(params[:event_id])
     else
       render 'new'
     end
