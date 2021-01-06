@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   include EventsHelper
+  before_action :authenticate_user, only: %i[new create]
 
   def index
     @events = Event.all
