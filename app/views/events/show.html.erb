@@ -14,7 +14,7 @@
     <p class="card-text"><strong>Attendees:</strong></p>
     <ul class="list-group list-group-flush">
       <% @event.attendees.each do |a| %>
-        <li class="list-group-item"><%= a.name%></li>
+        <li class="list-group-item" id="attendee"><%= a.name%></li>
       <%end%>
     </ul>
     

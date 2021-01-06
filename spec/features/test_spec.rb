@@ -15,6 +15,6 @@ describe 'Event', :type => :feature do
     fill_in 'event_date', with: '28/07/2021'
     fill_in 'event_location', with: 'Peru'
     find("input[type='submit']").click
-    expect(page).to have_content('Jenny')
+    expect(page).to have_content('Event6')
   end
 end
