@@ -3,36 +3,55 @@
 <br>
 <br>
 <p>
-  <strong>Username:</strong>
-  <%=current_user.name %>
-</p>
 
-<h2> <%=current_user.name %>'s events </h2>
-<ul>
-  <% current_user.attended_events.each do |event| %>
-      <%= link_to event.title, event_path(event.id)%>
-  <%end%>
-</ul>
 
-<h2> Upcoming Events </h2>
-<ul>
-  <% @upcoming_events.each do |event| %>
-      <li>
-        <p><strong>Event name</strong> <br><%= event.title %></p>
-        <p><strong>Event description</strong> <br><%= event.description %></p>
-        <p><strong>Event date</strong> <br><%= event.date %></p>
-        <p><strong>Event location</strong> <br><%= event.location%></p>
-      </li>
-  <% end %>
-</ul>
-<h2> Past Events </h2>
-<ul>
-  <% @past_events.each do |event| %>
-      <li>
-        <p><strong>Event name</strong> <br><%= event.title %></p>
-        <p><strong>Event description</strong> <br><%= event.description %></p>
-        <p><strong>Event date</strong> <br><%= event.date %></p>
-        <p><strong>Event location</strong> <br><%= event.location%></p>
-      </li>
-  <% end %>
-</ul>
+
+<div class="container">
+
+  <h2> <%=current_user.name %>'s created events </h2>
+  <ul>
+    <% current_user.attended_events.each do |event| %>
+        <%= link_to event.title, event_path(event.id)%>
+    <%end%>
+  </ul>
+
+  <h2> Upcoming Events </h2>
+  <div class="row">
+    <% @upcoming_events.each do |e| %>
+    <div class="col-sm-3">
+      <div class="card border-dark">
+      <%= image_tag( "default_img.jpg", alt: "rss feed", class: "card-img-top") -%> 
+        <div class="card-body ">
+          <h4 class="card-title"><%=e.title%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= e.date %></h6>
+          <p class="card-text"><%= e.description %></p>
+          <p class="card-text"><%= e.location %></p>
+          <%= link_to 'more details...', event_path(e), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <h2 class="mt-5"> Past Events </h2>
+  <div class="row">
+    <% @past_events.each do |e| %>
+    <div class="col-sm-3">
+      <div class="card border-dark">
+      <%= image_tag( "default_img.jpg", alt: "rss feed", class: "card-img-top") -%> 
+        <div class="card-body ">
+          <h4 class="card-title"><%=e.title%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= e.date %></h6>
+          <p class="card-text"><%= e.description %></p>
+          <p class="card-text"><%= e.location %></p>
+          <%= link_to 'more details...', event_path(e), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'back', events_path, class: 'btn btn-success mt-4'%>
+
+</div>
+

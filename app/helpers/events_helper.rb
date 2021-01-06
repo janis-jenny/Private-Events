@@ -23,8 +23,10 @@ module EventsHelper
 
   def create_event
     if user_sign_in?
-      @new_event_btn = link_to 'Create an event', new_event_path, class: 'btn btn-success'
+      @new_event_btn = link_to 'Create event', new_event_path, class: 'btn btn-success'
+      @your_event_btn = link_to 'Your events', user_path(current_user), class: 'btn btn-success'
     end
   end
+
 
 end

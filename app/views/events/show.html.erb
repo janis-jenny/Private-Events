@@ -2,31 +2,38 @@
 <br>
 <br>
 <br>
-<div class="card">
-  <h4 class="card-header bg-success">
-    <%= @event.title %>
-  </h4>
-  <div class="card-body">
-    <p class="card-text"><strong>Description: </strong><%= @event.description %></p>
-    <p class="card-text"><strong>Date: </strong>  <%= @event.date %></p>
-    <p class="card-text"><strong>Location: </strong>  <%= @event.location %></p>
-    <p class="card-text"><strong>By </strong> <%= @event.user.name %></p>
-    <p class="card-text"><strong>Attendees:</strong></p>
-    <ul class="list-group list-group-flush">
-      <% @event.attendees.each do |a| %>
-        <li class="list-group-item" id="attendee"><%= a.name%></li>
-      <%end%>
-    </ul>
-    
-    <%@e_id = @event.id%>
-    <%current_user_attended_event%>
-    <%=@go%>
-    <%=@leave%>
-    <%del_btn%>
-    <%=@del%>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card border-dark">
+      <%= image_tag( "default_img.jpg", alt: "rss feed", class: "card-img-top") -%> 
+        <div class="card-body ">
+          <h4 class="card-title"> <strong>Title: </strong><%= @event.title %></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><strong>Date: </strong><%= @event.date %></h6>
+          <p class="card-text"><strong>Description: </strong><%= @event.description %></p>
+          <p class="card-text"><strong>Location: </strong><%= @event.location %></p>
+          <p class="card-text"><strong>By </strong> <%= @event.user.name %></p>
+          <ul class="list-group list-group-flush">
+          <p class="card-text"><strong>Attendees:</strong></p>
+            <% @event.attendees.each do |a| %>
+              <li class="list-group-item" id="attendee"><%= a.name%></li>
+            <%end%>
+          </ul>
+          <%@e_id = @event.id%>
+          <%current_user_attended_event%>
+          <%=@go%>
+          <%=@leave%>
+          <%del_btn%>
+          <%=@del%>
+          <%= link_to 'back', events_path, class: 'btn btn-success'%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 
 
