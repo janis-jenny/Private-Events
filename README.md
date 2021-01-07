@@ -78,6 +78,7 @@ Run `rubocop .` from the project root directory
 - Ruby
 - Ruby on Rails
 - Ruby gem bundler
+- Bootstrap
 - Linters
 - VS code
 
@@ -85,7 +86,6 @@ Run `rubocop .` from the project root directory
 ## ⚒️ Tested 
 
 - Ruby gem RSpec
-- Ruby gem shoulda Matchers
 - Ruby gem capybara
 
 
