@@ -2,7 +2,6 @@
 # rubocop:disable Style/GuardClause
 
 module EventsHelper
-
   def event_params
     params.require(:event).permit(:title, :description, :date, :location)
   end
@@ -47,7 +46,6 @@ module EventsHelper
       end
     end
   end
-
 end
 
 # rubocop:enable Layout/LineLength
