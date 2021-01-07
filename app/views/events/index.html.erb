@@ -1,0 +1,58 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <%create_event%>
+  <h2 class= "pr-1"> All events </h2>
+  <div>
+    <%= @new_event_btn %>
+    <%= @your_event_btn %>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <h2 class="my-4"> Upcoming Events </h2>
+  <div class="row">
+    <% @upcoming_events.each do |e| %>
+    <div class="col-sm-3 mb-4">
+      <div class="card border-dark">
+      <%= image_tag( "default_img.jpg", alt: "default_image", class: "card-img-top") -%> 
+        <div class="card-body ">
+          <h4 class="card-title"><%=e.title%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= e.date %></h6>
+          <p class="card-text"><%= e.description %></p>
+          <p class="card-text"><%= e.location %></p>
+          <%= link_to 'More details...', event_path(e), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <h2 class="my-4"> Past Events </h2>
+  <div class="row">
+    <% @past_events.each do |e| %>
+    <div class="col-sm-3">
+      <div class="card border-dark">
+      <%= image_tag( "default_img.jpg", alt: "rss feed", class: "card-img-top") -%> 
+        <div class="card-body ">
+          <h4 class="card-title"><%=e.title%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= e.date %></h6>
+          <p class="card-text"><%= e.description %></p>
+          <p class="card-text"><%= e.location %></p>
+          <%= link_to 'more details...', event_path(e), class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+  

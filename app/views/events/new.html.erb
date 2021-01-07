@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<%event_errors%>
+
+<% @event.errors.full_messages.each do |msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+
+<div class="container">
+  <h1>Create events</h1>
+  <div class="w-25 border border-secondary mt-5 p-3 rounded">
+    <%= form_for @event, url: {action: "create"} do |f| %>
+        <%= f.label :title, nil, class: 'label' %>
+        <%= f.text_field :title, placeholder: "Put a title", class:"form-control my-2 #{@clas1}" %>
+        <%= f.label :description, nil, class: 'label' %>
+        <%= f.text_field :description, placeholder: "What's the event about?", class:"form-control my-2 #{@clas2}" %>
+        <%= f.label :date, nil, class: 'label' %>
+        <%= f.date_field :date, placeholder: "What's the date?", class:"form-control my-2 #{@clas3}" %>
+        <%= f.label :location, nil, class: 'label' %>
+        <%= f.text_field :location, placeholder: "Where's the event going?", class:"form-control my-2 #{@clas4}" %>
+        <%= f.submit "Create", class: 'btn btn-success  my-2' %>
+    <% end %>
+  </div>
+</div>
