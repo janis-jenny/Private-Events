@@ -1,13 +1,13 @@
 class AttendancesController < ApplicationController
   include AttendancesHelper
-  
+
   def index
     @attendances = Attendance.all
   end
-  
+
   def create
     @attendance = Attendance.new(attendance_params)
-  
+
     if @attendance.save
       redirect_to event_url(params[:event_id])
     else
@@ -20,5 +20,4 @@ class AttendancesController < ApplicationController
     @attendance.destroy
     redirect_to event_path
   end
-
 end

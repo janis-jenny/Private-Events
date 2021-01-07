@@ -13,9 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    if current_user.nil?
-      #flash[:error] = 'You must be signed in to view that page.'
-      redirect_to login_path
-    end
+    redirect_to login_path if current_user.nil?
   end
 end
