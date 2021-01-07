@@ -2,6 +2,7 @@
 # rubocop:disable Style/GuardClause
 
 module EventsHelper
+
   def event_params
     params.require(:event).permit(:title, :description, :date, :location)
   end
@@ -30,6 +31,23 @@ module EventsHelper
       @your_event_btn = link_to 'Your events', user_path(current_user), class: 'btn btn-success'
     end
   end
+
+  def event_errors
+    return unless @event.errors.any?
+
+    @event.errors.full_messages.each do |msg|
+      if msg.include?('Title')
+        @clas1 = 'border border-danger'
+      elsif msg.include?('Description')
+        @clas2 = 'border border-danger'
+      elsif msg.include?('Date')
+        @clas3 = 'border border-danger'
+      elsif msg.include?('Location')
+        @clas4 = 'border border-danger'
+      end
+    end
+  end
+
 end
 
 # rubocop:enable Layout/LineLength
