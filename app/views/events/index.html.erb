@@ -16,25 +16,25 @@
 
 <div class="container">
 
-  <h2> Upcoming Events </h2>
+  <h2 class="my-4"> Upcoming Events </h2>
   <div class="row">
     <% @upcoming_events.each do |e| %>
     <div class="col-sm-3 mb-4">
       <div class="card border-dark">
-      <%= image_tag( "default_img.jpg", alt: "rss feed", class: "card-img-top") -%> 
+      <%= image_tag( "default_img.jpg", alt: "default_image", class: "card-img-top") -%> 
         <div class="card-body ">
           <h4 class="card-title"><%=e.title%></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= e.date %></h6>
           <p class="card-text"><%= e.description %></p>
           <p class="card-text"><%= e.location %></p>
-          <%= link_to 'more details...', event_path(e), class: 'btn btn-primary'%>
+          <%= link_to 'More details...', event_path(e), class: 'btn btn-primary'%>
         </div>
       </div>
     </div>
     <% end %>
   </div>
 
-  <h2 class="mt-5"> Past Events </h2>
+  <h2 class="my-4"> Past Events </h2>
   <div class="row">
     <% @past_events.each do |e| %>
     <div class="col-sm-3">

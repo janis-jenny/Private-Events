@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+
 class ApplicationController < ActionController::Base
   include EventsHelper
   helper_method :current_user
@@ -13,6 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    redirect_to login_path if current_user.nil?
+    if current_user.nil?
+      redirect_to login_path
+    end
   end
 end
+
+# rubocop:disable Style/GuardClause
