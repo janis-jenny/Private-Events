@@ -15,7 +15,7 @@ describe 'Attendance', type: :feature do
   end
   it 'redirect to event show if click on event title' do
     visit '/events'
-    click_on('Event1')
+    click_on('More details...')
     expect(current_path).to eql('/events/1')
   end
   it 'create attendees in the current event' do
